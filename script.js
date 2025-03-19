@@ -3,7 +3,7 @@ document.getElementById('humanizeButton').addEventListener('click', async () => 
     const outputTextArea = document.getElementById('outputText');
 
     // Replace with your actual API endpoint
-    const apiUrl = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash';
+    const apiUrl = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:AIzaSyAu9E7iRZShRKc6NuK6oviV5nH37QZ1GoE';
 
     try {
         const response = await fetch(apiUrl, {

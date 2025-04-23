@@ -24,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Start the session and redirect to the dashboard or home page
             session_start();
             $_SESSION['email'] = $email;
-            header("Location: dashboard.php");
+            header("Location: index.php");
             exit();
         } else {
             $message = "Incorrect password";
@@ -56,57 +56,40 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <script src=
 "https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="../css/login.css">
+    <link rel="stylesheet" href="style.css">
     <title>Login Page</title>
 </head>
 
-<body class="bg-light">
-    <div class="container p-5 d-flex flex-column align-items-center">
-        <?php if ($message): ?>
-            <div class="toast align-items-center text-white 
-            <?php echo $toastClass; ?> border-0" role="alert"
-                aria-live="assertive" aria-atomic="true">
-                <div class="d-flex">
-                    <div class="toast-body">
-                        <?php echo $message; ?>
+<body>
+    <div class="form-popup">
+        <span class="close-btn material-symbols-rounded">close</span>
+        <div class="form-box login">
+            <div class="form-details">
+                <h2>Welcome Back</h2>
+                <p>Please log in using your personal information to stay connected with us.</p>
+            </div>
+            <div class="form-content">
+                <h2>LOGIN</h2>
+                <form action="#">
+                    <div class="input-field">
+                        <input type="text" required>
+                        <label>Email</label>
                     </div>
-                    <button type="button" class="btn-close
-                    btn-close-white me-2 m-auto" data-bs-dismiss="toast"
-                        aria-label="Close"></button>
+                    <div class="input-field">
+                        <input type="password" required>
+                        <label>Password</label>
+                    </div>
+                    <a href="resetpassword.php">Forgot password?</a>
+                    <button type="submit">Log In</button>
+                </form>
+                <div class="bottom-link">
+                    Don't have an account?
+                    <a href="register.php">Signup</a>
                 </div>
             </div>
-        <?php endif; ?>
-        <form action="" method="post" class="form-control mt-5 p-4"
-            style="height:auto; width:380px; box-shadow: rgba(60, 64, 67, 0.3) 
-            0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;">
-            <div class="row">
-                <i class="fa fa-user-circle-o fa-3x mt-1 mb-2"
-          style="text-align: center; color: green;"></i>
-                <h5 class="text-center p-4" 
-          style="font-weight: 700;">Login Into Your Account</h5>
-            </div>
-            <div class="col-mb-3">
-                <label for="email"><i 
-                  class="fa fa-envelope"></i> Email</label>
-                <input type="text" name="email" id="email"
-                  class="form-control" required>
-            </div>
-            <div class="col mb-3 mt-3">
-                <label for="password"><i
-                  class="fa fa-lock"></i> Password</label>
-                <input type="text" name="password" id="password" 
-                  class="form-control" required>
-            </div>
-            <div class="col mb-3 mt-3">
-                <button type="submit" 
-                  class="btn btn-success bg-success" style="font-weight: 600;">Login</button>
-            </div>
-            <div class="col mb-2 mt-4">
-                <p class="text-center" 
-                  style="font-weight: 600; color: navy;"
-                  ><a href="./register.php"
-                        style="text-decoration: none;">Create Account</a> OR <a href="./resetpassword.php"
-                        style="text-decoration: none;">Forgot Password</a></p>
-            </div>
+        </div>
+    
+    
         </form>
     </div>
     <script>
